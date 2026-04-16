@@ -36,7 +36,7 @@ public class Sponge {
     int Length = sentence.length(); 
     String Final = ""; 
     for(int i = 0; i<Length;i++){
-      char c = sentence.charAt(i)
+      char c = sentence.charAt(i);
       if(Character.isLowerCase(c)){
         Final += Character.toUpperCase(c);
       }
@@ -44,7 +44,7 @@ public class Sponge {
         Final += Character.toLowerCase(c);
       }
       else{
-        Final += ""; 
+        Final += " "; 
       }
     }
     return Final; 
