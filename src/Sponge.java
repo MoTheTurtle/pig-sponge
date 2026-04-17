@@ -33,30 +33,66 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    int Length = sentence.length(); 
+    String[] words = sentence.split(" ");
     String Final = ""; 
+    for(String word : words){
+    Final += OneWord(word);
+    Final += " ";
+    }
+    Final=Final.substring(0, Final.length()-1);
+    return Final;
+  }
+  private static String OneWord(String word){
     boolean Toggle = false; 
-  
+    int Length = word.length();
+    String New = ""; 
+
     for(int i = 0; i<Length;i++){
-      char c = sentence.charAt(i);
-      if(Character.isLetter(c)){
+      char c = word.charAt(i);
+      if((c>='a' && c<= 'z') ||(c>='A' && c<= 'Z')){
         if(Toggle){
-        Final += Character.toUpperCase(c);
+        New += Character.toUpperCase(c);
       }
         else{
-          Final += Character.toLowerCase(c);
+          New += Character.toLowerCase(c);
         }
       Toggle = !Toggle;
     }
     else{
-      Final += c;
+      New += c;
     }
     }
-    return Final;
+    return New;
 
   }
 
 
+
+/*String[] words = sentence.split(" ");
+String result = "";
+for (String word : words) {
+  result += spongeSingleWord(word);
+  result += " ";
+}
+result = result.substring(0, result.length() - 1);
+
+return result;
+}
+private static String spongeSingleWord(String word) {
+  String newWord = "";
+  boolean lower = true;
+
+  for (char letter : word.toCharArray()) {
+    if (lower) {
+      newWord += Character.toLowerCase(letter);
+    } else {
+      newWord += Character.toUpperCase(letter);
+    }
+    lower = !lower;
+  }
+
+  return newWord;
+}*/
   // Method to help with testing, you do not need to read this.
   public static void assertEqual(int testNumber, String actual, String expected) {
     if (!expected.equals(actual)) {
