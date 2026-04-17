@@ -43,25 +43,19 @@ public class Sponge {
     return Final;
   }
   private static String OneWord(String word){
-    boolean Toggle = false; 
-    int Length = word.length();
+    boolean Toggle = true; 
     String New = ""; 
 
-    for(int i = 0; i<Length;i++){
-      char c = word.charAt(i);
-      if((c>='a' && c<= 'z') ||(c>='A' && c<= 'Z')){
-        if(Toggle){
-        New += Character.toUpperCase(c);
+    for(char c : word.toCharArray()){
+     if(Toggle){
+        New += Character.toLowerCase(c);
       }
-        else{
-          New += Character.toLowerCase(c);
+      else{
+          New += Character.toUpperCase(c);
         }
       Toggle = !Toggle;
     }
-    else{
-      New += c;
-    }
-    }
+
     return New;
 
   }
