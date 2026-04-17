@@ -35,18 +35,35 @@ public class Sponge {
   public static String spongeCase(String sentence) {
     int Length = sentence.length(); 
     String Final = ""; 
+    char x = sentence.charAt(0); 
+    if(Character.isLowerCase(x)){
     for(int i = 0; i<Length;i++){
       char c = sentence.charAt(i);
-      if(Character.isLowerCase(c)){
+      if(c == ' '){
+        Final += " ";
+      }
+      else if(i%2 == 0){
         Final += Character.toUpperCase(c);
       }
-      else if(Character.isUpperCase(c)){
+      else{
+        Final += Character.toLowerCase(c);
+      }
+    }
+    }
+    else {
+      for(int i = 0; i<Length;i++){
+      char c = sentence.charAt(i);
+      if(c == ' '){
+        Final += " ";
+      }
+      else if(i%2 != 0){
         Final += Character.toLowerCase(c);
       }
       else{
-        Final += " "; 
+        Final += Character.toUpperCase(c);
       }
     }
+  }
     return Final; 
   }
 
