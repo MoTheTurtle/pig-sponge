@@ -26,7 +26,32 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        /* 
+        Sting[]
+        if statement, a e i o u
+        no caps
+        take the first letter then moving to the back. 
+        queue of some sort
+        for 
+        */
+        String[] words = sentence.split("");
+        String resent = "";
+        for(String word:words){
+            char c = word.charAt(0); 
+            if (c == 'a' || c == 'e'||c=='i' ||c=='o'||c=='u'){
+                resent += word;
+                
+            } else{
+                String x = "";
+                for(int i=1; i < word.length(); i++){
+                  x += word.charAt(i);  
+                }
+                x += c +"ay"; 
+                resent += x;
+            }
+            
+        }
+        return resent;       
     }
 
 
